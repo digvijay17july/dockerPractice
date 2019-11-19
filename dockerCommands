@@ -1,0 +1,20 @@
+#command to get running containers 
+
+docker ps -l
+
+# docker pull and run mysql image
+
+docker pull arnav30/mysql:1.0
+
+docker run --restart always --name mysql-demo -v /usr/local/opt/mysql/8.0:/var/lib/mysql -p 3306:3306 -d -e MYSQL_ROOT_PASSWORD=password  arnav30/mysql:1.0
+
+docker exec -it mysql-demo  bash
+
+# remove contwiner and volume
+docker volume prune
+
+docker container prune
+
+# command to stop container
+
+docker container stop <container id>
